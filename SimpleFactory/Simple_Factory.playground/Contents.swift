@@ -1,3 +1,5 @@
+// Description: 將物件的生成以及物件本身業務邏輯分離，降低系統耦合度。
+
 import UIKit
 
 protocol Operation {
