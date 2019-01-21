@@ -1,20 +1,23 @@
-// Description:
-// pros:
-// cons:
+// Description: 是對演算法的封裝，便可交由不同的對象管理，使得他們可以互換。
+// pros: 可在不修改原有系統的基礎上更改演算法，也可靈活增加新的演算法。
+// cons: client端必須自行判斷該使用哪一個演算法。
 
 
 import UIKit
 
+// Strategy
 protocol CashStrategy {
     func getFinalAmount(totalPrice: Double) -> Double
 }
 
+// ConcreteStrategy
 class CashNormal: CashStrategy {
     func getFinalAmount(totalPrice: Double) -> Double {
         return totalPrice
     }
 }
 
+// ConcreteStrategy
 class CashDiscount: CashStrategy {
     let rate: Double
     
@@ -27,6 +30,7 @@ class CashDiscount: CashStrategy {
     }
 }
 
+// ConcreteStrategy
 class CashBonus: CashStrategy {
     let condition: Double
     let returnBonus: Double
@@ -43,6 +47,7 @@ class CashBonus: CashStrategy {
     }
 }
 
+// Context
 class CashContext {
     var cashStrategy: CashStrategy
     

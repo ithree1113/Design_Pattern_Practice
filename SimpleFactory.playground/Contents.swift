@@ -4,28 +4,33 @@
 
 import UIKit
 
+// Product
 protocol Operation {
     func getResult(inputA: Double, inputB: Double) -> Double
 }
 
+// ConcreteProduct
 class OperationAdd: Operation {
     func getResult(inputA: Double, inputB: Double) -> Double {
         return inputA + inputB
     }
 }
 
+// ConcreteProduct
 class OperationSub: Operation {
     func getResult(inputA: Double, inputB: Double) -> Double {
         return inputA - inputB
     }
 }
 
+// ConcreteProduct
 class OperationMul: Operation {
     func getResult(inputA: Double, inputB: Double) -> Double {
         return inputA * inputB
     }
 }
 
+// ConcreteProduct
 class OperationDiv: Operation {
     func getResult(inputA: Double, inputB: Double) -> Double {
         guard inputB != 0 else { fatalError("除數不可為0") }
@@ -34,6 +39,7 @@ class OperationDiv: Operation {
     }
 }
 
+// Factory
 class OperationFactory {
     enum Operate {
         case add
